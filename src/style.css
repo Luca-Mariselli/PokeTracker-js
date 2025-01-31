@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: rgb(212, 214, 215);
+    color: white;
+  }
+
+  .setCard{
+    width: 30%;
+    background-color: rgb(131, 23, 8);
+    padding: 2rem;
+    border-radius: 30px;
+    
+  }
+
+  .setCard:hover{
+    background-color: rgba(131, 22, 8, 0.833);
+    cursor: pointer;
+  }
+
+  .setName{
+    color: rgb(255, 234, 3);
+    font-size: 40px;
+  }
