@@ -3,6 +3,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import './style.css'
 import HomeComponent from './components/HomeComponent.vue'
 import ListComponent from './components/ListComponent.vue'
+import SetCardsComponent from './components/SetCardsComponent.vue'
 
 import App from './App.vue'
 import axios from 'axios';
@@ -12,7 +13,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes:[
         {path: '/' , component: HomeComponent},
-        {path: '/browse' , component: ListComponent}
+        {path: '/sets' , component: ListComponent},
+        {path: '/cards' , component: SetCardsComponent}
     ]
 });
 

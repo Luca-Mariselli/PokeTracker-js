@@ -1,28 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&family=Raleway:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    margin:0;
+    padding:0;
+    font-family:'Raleway', serif;
   }
   
   body {
     background-color: rgb(212, 214, 215);
-    color: white;
+    color: black;
   }
 
-  .setCard{
-    width: 30%;
-    background-color: rgb(131, 23, 8);
-    padding: 2rem;
-    border-radius: 30px;
-    
-  }
-
-  .setCard:hover{
-    background-color: rgba(131, 22, 8, 0.833);
+  a {
+    text-decoration: none;
+    color: inherit; 
+    all: unset; 
     cursor: pointer;
+    display: inline-block; 
   }
 
-  .setName{
-    color: rgb(255, 234, 3);
-    font-size: 40px;
-  }
+

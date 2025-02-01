@@ -11,15 +11,13 @@
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/browse">Browse Cards</a>
+          <a class="nav-link" href="/sets">Browse Sets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">My Collection</a>
         </li>
       </ul>
-      <span class="navbar-text">
-        Navbar text with an inline element
-      </span>
+
     </div>
   </nav>
   <router-view></router-view>

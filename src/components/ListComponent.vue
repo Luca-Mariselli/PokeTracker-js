@@ -8,8 +8,7 @@ export default {
     data() {
         return {
             store,
-            mySets: [],
-
+            id: '',
         }
     },
     methods: {
@@ -17,7 +16,10 @@ export default {
             const options = {
                 method: 'GET',
                 url: 'https://api.pokemontcg.io/v2/sets',
-                headers: 'ca4222ed-b799-4c8a-9803-46b4cd13efc6'
+                headers: 'ca4222ed-b799-4c8a-9803-46b4cd13efc6',
+                params: {
+                    orderBy: 'releaseDate'
+                }
             };
             axios
                 .request(options)
@@ -27,6 +29,8 @@ export default {
 
                 });
         },
+
+
     },
     mounted() {
         this.searchSets()
@@ -39,25 +43,78 @@ export default {
 
 
     <main>
-        <div class="d-flex flex-wrap justify-content-evenly">
-            <div class="setCard m-4 d-flex align-items-center" v-for="(set, i) in store.mySets.data">
 
-                <div class="w-100 align-items-center d-flex flex-column">
-                    <div class="setName">{{ set.name }}</div>
-                    <img style="width: 250px; height: 250px;" class=" object-fit-contain" :src=set.images.logo alt="">
-                    <div class="align-self-start d-flex justify-content-between w-100">
-                        <div>Total cards: {{ set.printedTotal }}</div>
-                        <div>Released: {{ set.releaseDate }}</div>
+        <div class="d-flex flex-wrap justify-content-around">
+            <router-link class="card my-5" id="spiderman" v-for="(set, i)  in store.mySets.data" :key="set.id"
+                :to="{ path: '/cards', query: { id: set.id, setSymbol: set.images.symbol, setName: set.name } }">
+
+
+                <div class="card-image h-50">
+                    <img class="object-fit-contain" :src=set.images.logo />
+                </div>
+                <div class="h-50">
+                    <div class="h-100">
+                        <div class="h-50 my-set-name">{{ set.name }}</div>
+
+                        <div div class="h-50 d-flex justify-content-between align-items-end px-1">
+
+                            <div class="d-flex flex-column">
+                                <span>Cards:</span>
+                                <span>{{ set.printedTotal }}</span>
+
+                            </div>
+                            <div class="d-flex flex-column">
+                                <span class="align-self-end">Release:</span>
+                                <span>{{ set.releaseDate }}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-
-            </div>
+            </router-link>
         </div>
+
+
     </main>
 
 
 
 </template>
 
-<style scoped></style>
+<style scoped>
+.card {
+    margin: 0 30px;
+    height: 500px;
+    width: 250px;
+    background-color: #fff;
+    border: 5px solid black;
+    box-shadow: 0 0 0 7px #fff, 0 0 8px 5px #000;
+}
+
+.card-image {
+    border-bottom: 5px solid #000;
+    z-index: 1;
+}
+
+#spiderman>.card-image {
+    background-color: #cd0000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#spiderman>.card-image>img {
+    width: 200px;
+    height: 200px;
+}
+
+.my-set-name {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 600;
+}
+</style>
