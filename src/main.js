@@ -4,6 +4,7 @@ import './style.css'
 import HomeComponent from './components/HomeComponent.vue'
 import ListComponent from './components/ListComponent.vue'
 import SetCardsComponent from './components/SetCardsComponent.vue'
+import SingleCardComponent from './components/SingleCardComponent.vue'
 
 import App from './App.vue'
 import axios from 'axios';
@@ -14,7 +15,8 @@ const router = createRouter({
     routes:[
         {path: '/' , component: HomeComponent},
         {path: '/sets' , component: ListComponent},
-        {path: '/cards' , component: SetCardsComponent}
+        {path: '/cards' , component: SetCardsComponent},
+        { path: '/single-card', component: SingleCardComponent, props: true },    
     ]
 });
 

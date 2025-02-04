@@ -1,10 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="ms-2 navbar-brand" href="#">PokeTracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-lg navbar-dark my-header-bg ps-4">
+
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -56,5 +52,9 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+
+.my-header-bg {
+  background: url(https://limitless3.nyc3.cdn.digitaloceanspaces.com/limitless/header-background.png);
 }
 </style>

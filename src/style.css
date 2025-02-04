@@ -9,8 +9,10 @@
   }
   
   body {
-    background-color: rgb(212, 214, 215);
-    color: black;
+    /* background-color: rgb(212, 214, 215);
+    color: black; */
+    background: url(https://jp.pokellector.com/images/bg-2016.jpg) #BAF2F1 repeat-x right -130px;
+    
   }
 
   a {

@@ -1,13 +1,12 @@
 <script>
 import { ref } from 'vue';
-import axios from 'axios';
-import store from '../data/store.js';
 export default {
     data() {
         return {
             id: this.$route.query.id, // Query string ID
             setSymbol: this.$route.query.setSymbol,
             setName: this.$route.query.setName,
+            totalNumber: this.$route.query.totalNumber,
             cardUrl: './data/cardsJson',
             jsonData: ref(null),
         };
@@ -35,24 +34,28 @@ export default {
 }
 </script>
 <template>
-
     <div class="d-flex my-title-container">
-
         <div class="mx-auto">{{ this.setName }}</div>
-        <img class="align-self-center" :src=this.setSymbol alt="">
-
+        <img class="align-self-center" :src="setSymbol" alt="">
     </div>
+
     <div class="my-container">
         <div class="my-cards-container d-flex flex-wrap justify-content-start">
-            <div class="p-4" v-for="pokemon in jsonData">
-                <div>
-                    <img :src=pokemon.images.small alt="">
-                </div>
-            </div>
+            <router-link class="position-relative py-4" v-for="pokemon in jsonData" :key="pokemon.id" :to="{
+                path: `/single-card`,
+                query: {
+                    setId: id,
+                    pokemonId: pokemon.id
+                }
+            }">
+                <span class="my-tag">
+                    <span>{{ pokemon.rarity }}</span>
+                    <span>{{ pokemon.number }}/{{ totalNumber }}</span>
+                </span>
+                <img :src="pokemon.images.small" alt="">
+            </router-link>
         </div>
     </div>
-
-
 </template>
 
 
@@ -64,7 +67,9 @@ export default {
 
 
 .my-cards-container {
-    div {
+    position: relative;
+
+    a {
         width: calc(100%/5);
         display: flex;
         justify-content: center;
@@ -72,7 +77,10 @@ export default {
 
     img {
         width: 240px;
+        border: 3px solid rgb(0, 0, 0);
     }
+
+
 }
 
 .my-title-container {
@@ -94,5 +102,19 @@ export default {
         font-family: 'Pokemon Solid', sans-serif;
         letter-spacing: 5px;
     }
+}
+
+.my-tag {
+    position: absolute;
+    left: 10;
+    background-color: rgba(0, 0, 0, 0.713);
+    width: 240px;
+    height: 40px;
+    bottom: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
 }
 </style>
