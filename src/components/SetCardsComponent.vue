@@ -62,7 +62,9 @@ export default {
 <style scoped>
 .my-container {
     width: 80vw;
-    margin: 0 auto;
+    margin: 3rem auto;
+    background-color: rgba(255, 247, 236, 0.838);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.712), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
 }
 
 

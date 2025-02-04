@@ -56,7 +56,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container my-bg-container">
             <div class="d-flex flex-wrap justify-content-start">
                 <router-link class="card my-5" id="set-card" v-for="set in filteredSets" :key="set.id"
                     :to="{ path: '/cards', query: { id: set.id, setSymbol: set.images.symbol, setName: set.name, totalNumber: set.printedTotal } }">
@@ -89,9 +89,13 @@ export default {
 .my-container {
     width: 80vw;
     margin: 0 auto;
+
 }
 
-
+.my-bg-container {
+    background-color: rgba(90, 89, 87, 0.587);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.712), transparent 0 0 0, transparent 0 0 0, transparent 0 0 0, transparent 0 0 0;
+}
 
 .card {
     margin: 0 30px;
